@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+@layer base {
+    * {
+      @apply font-sans m-0 p-0 box-border text-text;
+    }
+
+    body {
+      @apply bg-body;
+    }
+
+    section {
+      @apply my-8 px-6
+    }
+
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="dist/output.css" rel="stylesheet">
+    <title>Todo App</title>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- Title/Framework Used -->
+    <header class="bg-primary pl-4">
+        <h1 class="text-2xl md:text-4xl py-6 italic font-semibold">Vanilla JavaScript</h1>
+    </header>
+
+    <!-- Main Content  -->
+    <main class="grid grids-row-2 md:grid-cols-2 justify-items-stretch h-fit flex-grow">
+
+        <!-- Add Todo -->
+        <section class="mx-10 h-fit">
+            <form id="form-todo">
+                <!-- Todo -->
+                <label for="content" class="text-sm md:text-xl font-semibold italic">What are you going to do?</label>
+                <input class="border-none shadow-xl rounded-lg py-3 w-full" type="text" id="content" name="content"
+                    placeholder="e.g. make a video">
+                <!-- Category -->
+                <h2 class="text-sm md:text-xl py-2 italic font-semibold">Pick a category</h2>
+                <ul class="grid gap-6 w-full md:grid-cols-2">
+                    <li class="space-y-2">
+                        <label
+                            class="flex flex-col justify-center text-center items-center p-5 w-full h-32 bg-white rounded-xl border-2 border-category-personal cursor-pointer hover:bg-gray-100 shadow-md">
+                            <input type="radio" id="category" name="category" value="personal"
+                                class="category w-6 h-6 border-2 border-category-personal text-category-personal focus:ring-category-personal transition-all ease-out cursor-pointer"
+                                required>
+                            <div class="w-full text-xl font-semibold">Personal</div>
+                        </label>
+                        </input>
+                    </li>
+                    <li class="space-y-2">
+                        <label
+                            class="flex flex-col justify-center text-center items-center p-5 w-full h-32 bg-white rounded-xl border-2 border-category-business cursor-pointer hover:bg-gray-100 shadow-md">
+                            <input type="radio" id="category" name="category" value="business"
+                                class="category w-6 h-6 border-2 border-category-business text-category-business focus:ring-category-business transition-all ease-out cursor-pointer">
+                            <div class="w-full text-xl font-semibold">Business</div>
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="mt-6">
+                    <input type="submit" id="addTodo" value="Add Todo"
+                        class="w-full py-3 bg-[#ffe065] rounded-lg text-xl font-semibold cursor-pointer hover:bg-[#f5cd2f] transition-all ease-in-out duration-700 text-text hover:-translate-y-1"></button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Todo List -->
+        <section class="flex flex-col pt-3 mx-10 space-y-2  rounded-md">
+            <h3 class="font-bold">TODO LIST</h3>
+            <ul id="todo-list" class="todo-list overflow-auto h-[336px] md:h-[346px]">
+            </ul>
+        </section>
+    </main>
+
+    <footer class="flex flex-col w-full h-20 justify-center space-y-1 items-center bg-primary font-semibold">
+
+        <div class="flex space-x-4">
+            <p>Made with</p>
+            <svg viewBox="0 0 128 128" class="h-6 w-6">
+                <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z"></path>
+                <path fill="#323330"
+                    d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z">
+                </path>
+            </svg>
+            <p>&</p>
+            <svg viewBox="0 0 128 128" class="h-6 w-6">
+                <path
+                    d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0"
+                    fill="#38b2ac"></path>
+            </svg>
+        </div>
+        <p>Website powered by 🐜</p>
+    </footer>
+
+</body>
+
+</html>
+<script src="./src/main.js"></script>
